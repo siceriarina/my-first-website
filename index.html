@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Web Tombolku</title>
+  <title>Game Tebak Angka</title>
 </head>
 <body>
 
-  <h1>Halo 👋</h1>
-  <p>Coba klik tombol di bawah ini:</p>
+  <h1>🎮 Game Tebak Angka</h1>
+  <p>Tebak angka dari 1 sampai 10</p>
 
-  <button onclick="alert('Kamu klik tombolnya 😄')">
-    Klik aku!
-  </button>
+  <input id="tebakan" type="number" min="1" max="10">
+  <button onclick="cekJawaban()">Tebak!</button>
+
+  <p id="hasil"></p>
+
+  <script>
+    let angkaRahasia = Math.floor(Math.random() * 10) + 1;
+
+    function cekJawaban() {
+      let input = document.getElementById("tebakan").value;
+      let hasil = document.getElementById("hasil");
+
+      if (input == angkaRahasia) {
+        hasil.innerHTML = "🎉 Benar! Kamu menang!";
+      } else {
+        hasil.innerHTML = "❌ Salah, coba lagi!";
+      }
+    }
+  </script>
 
 </body>
 </html>
